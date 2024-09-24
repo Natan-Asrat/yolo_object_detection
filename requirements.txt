@@ -3,4 +3,4 @@ ultralytics==8.2.100
 ipykernel==6.29.5
 streamlit==1.38.0
 opencv-python==4.10.0.84
-git+https://github.com/whitphx/streamlit-webrtc.git
+git+https://github.com/whitphx/streamlit-webrtc.git@c871978d5b5c6141d96b808ec465adc784cf2ec0
