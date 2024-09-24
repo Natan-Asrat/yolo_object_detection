@@ -8,6 +8,24 @@ import math
 import platform
 import time
 
+# JavaScript code to request camera permissions
+def camera_permission_script():
+    return """
+    <script>
+        async function checkCameraPermission() {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            const videoTracks = stream.getVideoTracks();
+            if (videoTracks.length > 0) {
+                console.log('Camera is accessible.');
+            } else {
+                console.error('Camera is not accessible.');
+            }
+            stream.getTracks().forEach(track => track.stop());
+        }
+        checkCameraPermission();
+    </script>
+    """
+
 # Function to get camera index based on the operating system
 def get_camera_index():
     os_type = platform.system()
@@ -81,6 +99,9 @@ camera_index = get_camera_index()
 if camera_index is not None:
     st.title("YOLO Object Detection Live Stream")
     st.text("Live object detection using YOLO model by Natan Asrat. Please wait a bit if the stream does not appear immediately.")
+
+    # Inject the JavaScript to check camera permission
+    st.markdown(camera_permission_script(), unsafe_allow_html=True)
 
     # Display the video stream in Streamlit
     frame_placeholder = st.empty()
