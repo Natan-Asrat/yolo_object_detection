@@ -8,7 +8,7 @@
 - Create virtual environment:  `python -m venv venv`
 - Activate virtual environment: `call venv/Scripts/activate.bat` in cmd
 - Install dependencies: `pip install -r requirements.txt`
-
+- Run on streamlit: `streamlit run app.py`
 
 
 - `pip install -r requirements.txt`
