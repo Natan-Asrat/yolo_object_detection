@@ -11,15 +11,12 @@
 - Run on streamlit: `streamlit run app.py`
 
 
-- `pip install -r requirements.txt`
-
-- 
-
 # Libraries
 - Ultralytics
 - cvzone
 - opencv
 - ipykernel
+- streamlit-webrtc
 
 ## Contact
  - LinkedIn: [Natan Asrat](https://linkedin.com/in/natan-asrat)
