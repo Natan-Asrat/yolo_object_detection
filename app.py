@@ -80,7 +80,7 @@ model = load_model()
 camera_index = get_camera_index()
 if camera_index is not None:
     st.title("YOLO Object Detection Live Stream")
-    st.text("Live object detection using YOLO model by Natan Asrat.")
+    st.text("Live object detection using YOLO model by Natan Asrat. Please wait a bit if the stream does not appear immediately.")
 
     # Display the video stream in Streamlit
     frame_placeholder = st.empty()
