@@ -45,7 +45,16 @@ def load_model():
 model = load_model()
 
 rtc_configuration = RTCConfiguration({
-    "iceServers": [{"urls": "stun:stun.l.google.com:19302"}]
+    "iceServers": [{ "urls": "stun:stun.l.google.com:19302" },
+    { "urls": "stun:stun.l.google.com:5349" },
+    { "urls": "stun:stun1.l.google.com:3478" },
+    { "urls": "stun:stun1.l.google.com:5349" },
+    { "urls": "stun:stun2.l.google.com:19302" },
+    { "urls": "stun:stun2.l.google.com:5349" },
+    { "urls": "stun:stun3.l.google.com:3478" },
+    { "urls": "stun:stun3.l.google.com:5349" },
+    { "urls": "stun:stun4.l.google.com:19302" },
+    { "urls": "stun:stun4.l.google.com:5349" }]
 })
 
 # Use WebRTC for live video stream
