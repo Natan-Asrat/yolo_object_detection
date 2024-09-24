@@ -4,6 +4,7 @@ from ultralytics import YOLO
 import cv2
 import numpy as np
 import math
+import cvzone
 from streamlit_webrtc import VideoTransformerBase, webrtc_streamer
 import av
 
@@ -23,10 +24,11 @@ class CustomVideoProcessor(VideoTransformerBase):
                 confidence = math.ceil(box.conf[0] * 100) / 100
 
                 # Draw the bounding box
-                cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
+                cvzone.cornerRect(img, (x1, y1, x2, y2))
                 label = f"{self.model.names[int(box.cls[0])]} {confidence:.2f}"
-                cv2.putText(img, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-
+                font_scale = 1.0  # Smaller font size
+                thickness = 2     # Thinner text
+                cvzone.putTextRect(img, label, (max(0, x1), max(35, y1)), scale=font_scale, thickness=thickness)
         return av.VideoFrame.from_ndarray(img, format="bgr24")
 
 # Main application logic
