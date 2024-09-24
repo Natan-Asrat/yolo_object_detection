@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 import math
 import cvzone
-from streamlit_webrtc import VideoTransformerBase, webrtc_streamer
+from streamlit_webrtc import VideoTransformerBase, webrtc_streamer, RTCConfiguration
 import av
 
 # Custom Video Processor Class
@@ -43,6 +43,10 @@ def load_model():
     return model
 
 model = load_model()
+
+rtc_configuration = RTCConfiguration({
+    "iceServers": [{"urls": "stun:stun.l.google.com:19302"}]
+})
 
 # Use WebRTC for live video stream
 webrtc_streamer(key="example", video_processor_factory=lambda: CustomVideoProcessor(model))
